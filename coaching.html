@@ -88,6 +88,13 @@ p{margin:0}
 .links{display:flex;gap:22px;margin-left:auto;font-family:var(--f-display);font-size:.95rem;font-weight:500}
 .links a{text-decoration:none;padding-block:4px;border-bottom:2px solid transparent}
 .links a:hover{border-bottom-color:var(--marigold)}
+.has-sub{position:relative;display:flex;align-items:center}
+.has-sub>a::after{content:"";display:inline-block;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:0 0 3px 7px}
+.sub{position:absolute;top:100%;left:-16px;display:none;flex-direction:column;gap:2px;background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:10px 16px;min-width:220px;box-shadow:0 14px 30px rgba(20,27,61,.1);z-index:20}
+.sub a{white-space:nowrap}
+.has-sub:hover .sub,.has-sub:focus-within .sub{display:flex}
+@media (max-width:900px){.has-sub,.has-sub:hover .sub,.has-sub:focus-within .sub,.sub{display:contents}.has-sub>a::after{content:none}}
+
 .nav .btn{padding:.6em 1.1em;font-size:.92rem}
 @media (max-width:900px){
   .nav .wrap{flex-wrap:wrap;gap:10px 16px}
@@ -436,7 +443,7 @@ form.enquiry .btn{justify-content:center;cursor:pointer}
     <a class="brand" href="index.html"><b>Harjeet Khanduja</b><span>HR Leader · Author · Speaker</span></a>
     <nav class="links" aria-label="Main">
       <a href="engage.html" aria-current="page">Engage with Harjeet</a>
-      <a href="books.html">Books</a>
+      <span class="has-sub"><a href="books.html">Books</a><span class="sub"><a href="https://howleadersinfluence.com">How Leaders Influence</a><a href="book/how_leaders_decide/">How Leaders Decide</a></span></span>
       <a href="awards.html">Awards</a>
       <a href="media.html">Media</a>
       <a href="about.html">About</a>
